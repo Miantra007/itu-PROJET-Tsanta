@@ -3,8 +3,7 @@
 
 namespace App\Controllers;
 
-
-
+use App\Models\ProduitModel;
 
 class AchatController extends BaseController
 {
