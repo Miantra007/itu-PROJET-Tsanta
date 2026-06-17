@@ -10,16 +10,13 @@ class AchatController extends BaseController
 {
     public function index()
     {
-        return view('Achats');
-    }
-    public function showAchat()
-    {
         $produitModel = new ProduitModel();
 
-        $data['caisses'] = $produitModel->findAll();
+        $data['produits'] = $produitModel->findAll();
 
-        return view('FormCaisse', $data);
+        return view('Achats', $data);
     }
+
 }
 
 

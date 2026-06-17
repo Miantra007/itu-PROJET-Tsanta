@@ -26,7 +26,7 @@ class AuthController extends BaseController
             ->select('id_client, nom, email, mot_de_passe')
             ->where('email', $email)
             ->first();
-            
+
         if (!$user) {
             return redirect()->back()->with('error', 'Email incorrect');
         }
@@ -42,7 +42,7 @@ class AuthController extends BaseController
             'isLoggedIn' => true
         ]);
 
-        return redirect()->to('/dashboard');
+        return redirect()->to('/caisse');
     }
 
     public function logout()
