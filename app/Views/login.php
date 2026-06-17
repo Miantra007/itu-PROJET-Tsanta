@@ -18,8 +18,8 @@
     <?php endif; ?>
 
     <form action="<?= base_url('/login') ?>" method="post">
-        <p>Email : <input type="email" name="email"></p>
-        <p>Mot de passe : <input type="password" name="mdp"></p>
+        <p>Email : <input type="email" name="email" value="rakoto@gmail.com"></p>
+        <p>Mot de passe : <input type="password" name="mdp" value="pass123"></p>
         <input type="submit" value="Se connecter">
     </form>
 
