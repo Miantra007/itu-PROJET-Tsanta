@@ -1,32 +1,43 @@
-CRITICAL - 2026-06-17 06:39:20 --> Error: Class "App\Controllers\BaseController" not found
+CRITICAL - 2026-06-17 06:51:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "formCaisse.php"
 [Method: GET, Route: caisse/]
-in APPPATH/Controllers/CaisseController.php on line 9.
- 1 SYSTEMPATH/Autoloader/Autoloader.php(315): include_once()
- 2 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
- 3 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
- 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
- 5 SYSTEMPATH/Router/Router.php(792): class_exists()
- 6 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
- 7 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
- 8 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
- 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
-10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-13 SYSTEMPATH/rewrite.php(44): require_once('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/public/index.php')
-CRITICAL - 2026-06-17 06:42:26 --> Error: Class "App\Controllers\BaseController" not found
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/CaisseController.php(17): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\CaisseController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/public/index.php')
+CRITICAL - 2026-06-17 06:52:52 --> ErrorException: Undefined array key "nom_caisse"
 [Method: GET, Route: caisse/]
-in APPPATH/Controllers/CaisseController.php on line 9.
- 1 SYSTEMPATH/Autoloader/Autoloader.php(315): include_once()
- 2 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
- 3 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
- 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
- 5 SYSTEMPATH/Router/Router.php(792): class_exists()
- 6 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
- 7 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
- 8 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
- 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
-10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-13 SYSTEMPATH/rewrite.php(44): require_once('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/public/index.php')
+in APPPATH/Views/FormCaisse.php on line 23.
+ 1 APPPATH/Views/FormCaisse.php(23): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/app/Views/FormCaisse.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():237}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/CaisseController.php(17): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\CaisseController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/public/index.php')
+CRITICAL - 2026-06-17 06:52:55 --> ErrorException: Undefined array key "nom_caisse"
+[Method: GET, Route: caisse/]
+in APPPATH/Views/FormCaisse.php on line 23.
+ 1 APPPATH/Views/FormCaisse.php(23): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/app/Views/FormCaisse.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():237}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/CaisseController.php(17): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\CaisseController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/tsanta/Documents/S4/MrRojo/ProjetSuperMarket/itu-PROJET-Tsanta/public/index.php')

@@ -14,7 +14,7 @@ class CaisseController extends BaseController
         
         $data['caisses'] = $caisseModel->findAll();
 
-        return view('formCaisse', $data);
+        return view('FormCaisse', $data);
     }
 
     public function selectionner()
@@ -33,7 +33,7 @@ class CaisseController extends BaseController
                     'num' => $caisse['num_caisse']
                 ]);
 
-                return redirect()->to('/chats');
+                return redirect()->to('/Achats');
             }
         }
 

@@ -20,7 +20,7 @@
                 <select name="id_caisse" required style="padding: 5px; width: 200px;">
                     <option value="">selectionner</option>
                     <?php foreach ($caisses as $caisse): ?>
-                        <option value="<?= $caisse['id_caisse'] ?>"><?= $caisse['nom_caisse'] ?></option>
+                        <option value="<?= $caisse['id_caisse'] ?>"><?= $caisse['num_caisse'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </p>
