@@ -11,7 +11,7 @@ class AchatModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
 
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
 
     protected $allowedFields = [
         'id_caisse',

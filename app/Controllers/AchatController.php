@@ -1,12 +1,10 @@
 <?php
 
-
 namespace App\Controllers;
 
 use App\Models\ProduitModel;
 use App\Models\AchatModel;
 use App\Models\DetailAchatModel;
-
 
 class AchatController extends BaseController
 {
@@ -14,73 +12,74 @@ class AchatController extends BaseController
     {
         $produitModel = new ProduitModel();
 
-        $data['produits'] = $produitModel->findAll();
-
-        return view('Achats', $data);
+        return view('Achats', [
+            'produits' => $produitModel->findAll()
+        ]);
     }
 
-    public function ajouter()
+    public function valider()
     {
         $session = session();
 
         $id_client = $session->get('id_client');
         $caisse = $session->get('caisse_active');
 
+        if (!$id_client || !$caisse) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Client ou caisse introuvable'
+            ]);
+        }
+
         $id_caisse = $caisse['id'];
 
-        $id_produit = $this->request->getPost('id_produit');
-        $quantite = (int) $this->request->getPost('quantite');
+        $data = $this->request->getJSON(true);
+        $panier = $data['panier'] ?? [];
 
-        $produitModel = new ProduitModel();
+        if (empty($panier)) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Panier vide'
+            ]);
+        }
+
         $achatModel = new AchatModel();
         $detailModel = new DetailAchatModel();
+        $produitModel = new ProduitModel();
 
-        $produit = $produitModel->find($id_produit);
+        $id_achat = $achatModel->insert([
+            'id_client' => $id_client,
+            'id_caisse' => $id_caisse,
+            'est_cloture' => 0
+        ]);
 
-        if (!$produit) {
-            return redirect()->back()->with('error', 'Produit introuvable');
-        }
+        foreach ($panier as $item) {
 
-        if ($produit['quantite_stock'] < $quantite) {
-            return redirect()->back()->with('error', 'Stock insuffisant');
-        }
+            $produit = $produitModel->find($item['id_produit']);
 
-        $achat = $achatModel
-            ->where('id_client', $id_client)
-            ->where('id_caisse', $id_caisse)
-            ->where('est_cloture', 0)
-            ->first();
+            if (!$produit) {
+                continue;
+            }
 
-        if (!$achat) {
-            $achatId = $achatModel->insert([
-                'id_client' => $id_client,
-                'id_caisse' => $id_caisse,
-                'est_cloture' => 0
+            if ($produit['quantite_stock'] < $item['quantite']) {
+                continue;
+            }
+
+            $detailModel->insert([
+                'id_achat' => $id_achat,
+                'id_produit' => $item['id_produit'],
+                'quantite' => $item['quantite'],
+                'prix_unitaire_facture' => $item['prix']
             ]);
-        } else {
-            $achatId = $achat['id_achat'];
+
+            $produitModel->update($item['id_produit'], [
+                'quantite_stock' => $produit['quantite_stock'] - $item['quantite']
+            ]);
         }
 
-        $detailModel->insert([
-            'id_achat' => $achatId,
-            'id_produit' => $id_produit,
-            'quantite' => $quantite,
-            'prix_unitaire_facture' => $produit['prix_unitaire']
+        return $this->response->setJSON([
+            'status' => true,
+            'message' => 'Achat validé avec succès'
         ]);
-
-        $newStock = $produit['quantite_stock'] - $quantite;
-
-        $produitModel->update($id_produit, [
-            'quantite_stock' => $newStock
-        ]);
-
-        return redirect()->back()->with('success', 'Produit ajouté au panier');
     }
-
 }
-
-
-
-
-
-?>
