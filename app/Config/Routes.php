@@ -12,7 +12,7 @@ use CodeIgniter\Router\RouteCollection;
 // ------------------------TSANTA----------------------------------
 $routes->get('/caisse', 'CaisseController::index');
 $routes->post('/caisse/selectionner', 'CaisseController::selectionner');
-$routes->get('/achat', 'AchatController::index');
+$routes->get('/Achats', 'AchatController::index');
 
 
 
