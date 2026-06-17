@@ -57,3 +57,4 @@ $routes->get('/Achats', 'AchatController::index');
 $routes->get('/', 'AuthController::index');
 $routes->post('/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
+$routes->post('/achat/valider', 'AchatController::valider');

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Choisir une Caisse</title>
-    </head>
+    <?= $this->include('partials/header') ?>
+
+</head>
+
 <body>
 
     <div>
@@ -15,7 +19,7 @@
 
         <form action="<?= base_url('/caisse/selectionner') ?>" method="post">
             <?= csrf_field() ?>
-            
+
             <p>
                 <select name="id_caisse" required style="padding: 5px; width: 200px;">
                     <option value="">selectionner</option>
@@ -32,4 +36,5 @@
     </div>
 
 </body>
+
 </html>
