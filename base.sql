@@ -19,9 +19,11 @@ CREATE TABLE caisse (
 CREATE TABLE achat (
     id_achat INTEGER PRIMARY KEY AUTOINCREMENT,
     id_caisse INTEGER NOT NULL,
+    id_client INTEGER NOT NULL,
     date_achat DATETIME DEFAULT CURRENT_TIMESTAMP,
-    est_cloture INTEGER DEFAULT 0 CHECK(est_cloture IN (0, 1)), -- 0 = En cours, 1 = Clôturé
-    FOREIGN KEY (id_caisse) REFERENCES caisse(id_caisse) ON DELETE CASCADE
+    est_cloture INTEGER DEFAULT 0 CHECK(est_cloture IN (0, 1)),
+    FOREIGN KEY (id_caisse) REFERENCES caisse(id_caisse) ON DELETE CASCADE,
+    FOREIGN KEY (id_client) REFERENCES client(id_client) ON DELETE CASCADE
 );
 
 -- 4. Table Détails des Achats (Lignes du panier de la page de saisie)
@@ -30,7 +32,15 @@ CREATE TABLE detail_achat (
     id_achat INTEGER NOT NULL,
     id_produit INTEGER NOT NULL,
     quantite INTEGER NOT NULL CHECK(quantite > 0),
-    prix_unitaire_facture REAL NOT NULL, -- Sauvegarde du prix au moment de l'achat
+    prix_unitaire_facture REAL NOT NULL,
+    -- Sauvegarde du prix au moment de l'achat
     FOREIGN KEY (id_achat) REFERENCES achat(id_achat) ON DELETE CASCADE,
     FOREIGN KEY (id_produit) REFERENCES produit(id_produit)
+);
+
+CREATE TABLE client (
+    id_client INTEGER PRIMARY KEY AUTOINCREMENT,
+    nom TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    mot_de_passe TEXT NOT NULL
 );
