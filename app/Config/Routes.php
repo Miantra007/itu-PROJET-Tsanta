@@ -5,9 +5,9 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
-$routes->post('/login', 'Home::validateLogin');
-$routes->get('/logout', 'Home::logout');
+// $routes->get('/', 'Home::index');
+// $routes->post('/login', 'Home::validateLogin');
+// $routes->get('/logout', 'Home::logout');
 
 // ------------------------TSANTA----------------------------------
 
@@ -45,4 +45,8 @@ $routes->get('/logout', 'Home::logout');
 
 
 
+
 // -----------------------------------------------------------------
+$routes->get('/', 'AuthController::index');
+$routes->post('/login', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');

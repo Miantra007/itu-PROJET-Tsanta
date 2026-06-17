@@ -15,10 +15,6 @@ class ClientModel extends Model
         'nom',
         'email',
         'mot_de_passe'
-
     ];
-
-
-
 
 }
