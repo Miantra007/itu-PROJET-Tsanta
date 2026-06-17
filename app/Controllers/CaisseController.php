@@ -33,7 +33,7 @@ class CaisseController extends BaseController
                     'num' => $caisse['num_caisse']
                 ]);
 
-                return redirect()->to('/achats');
+                return redirect()->to('/chats');
             }
         }
 
