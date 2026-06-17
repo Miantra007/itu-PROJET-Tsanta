@@ -10,6 +10,13 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('/logout', 'Home::logout');
 
 // ------------------------TSANTA----------------------------------
+$routes->get('/caisse', 'CaisseController::index');
+$routes->post('/caisse/selectionner', 'CaisseController::selectionner');
+$routes->get('/achat', 'AchatController::index');
+
+
+
+
 
 
 
